@@ -1,5 +1,6 @@
 # IGCSE Slide Deck Changes (2025-11-28)
 
+- Tightened slide container sizing (full-height sections + flex `.slide-inner` + trimmed box padding) so key definitions/question boxes auto-fit without clipping or scrollbars in all IGCSE decks. Updated `public/css/slide-deck.css`, `docs/agent/templates/slide-deck-template.css`, and documented in `docs/agent/igcse-slide-deck-agent.md`/`reveal-slide-deck-sizing-guide.md`.
 - Shifted IGCSE retrieval practice to the KS3-style vertical stack (overview + one-question-per-slide) in:
   - `docs/agent/templates/igcse-slide-deck-template.html`
   - `docs/agent/templates/slide-deck-content.html`

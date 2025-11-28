@@ -37,7 +37,8 @@ Use this checklist to build consistent IGCSE slide decks that mirror the 4.1/4.2
 6) Finishing touches  
    - Keep the back button/logo/footer intact; use the existing slide-number/date scripts.  
    - Code/examples in `pre > code` with highlight.js classes; keep fragments for stepwise reveal.  
-   - If adding new widgets, prefer adding styles/behaviour to shared CSS/JS or macros so updates cascade to all decks.
+   - If adding new widgets, prefer adding styles/behaviour to shared CSS/JS or macros so updates cascade to all decks.  
+   - Let the shared autofit handle sizing: sections are full-height flex containers with a single `.slide-inner` wrapper. Avoid custom scroll containers or extra wrappers that could fight the scale-to-fit for large blue/definition boxes.  
 
 ## Using chapter text files (e.g., `public/igcse/chapter text files/Chapter 1 Subfiles/1.1.txt`)
 - Parse the text into: keywords/definitions, worked examples, strengths vs weaknesses, misconceptions.

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>6.2 Robotics | St George's CS</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css">
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../../css/slide-deck.css">
+
+</head>
+
+<body>
+    <a href="../../igcse/topic6/index.html" id="back-btn" title="Back" class="back-nav">
+        <i class="fa-solid fa-circle-arrow-left"></i>
+    </a>
+    <img src="../../images/Logo.png" id="sg-logo" alt="Logo"
+        onerror="this.src='https://via.placeholder.com/80/003366/ffffff?text=LOGO'">
+    <div class="footer-text live-date" id="live-date-display"></div>
+    <div class="footer-text course-footer">IGCSE Computer Science</div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- 1. TITLE SLIDE -->
+            <section>
+                <div class="title-container">
+                    <div class="title-line-top"></div>
+                    <div>
+                        <h1 class="main-title">6.2 Robotics</h1>
+                        <h3 class="sub-title">Characteristics, Roles & Impact</h3>
+                    </div>
+                    <div class="title-line-bottom"></div>
+                </div>
+            </section>
+
+            <!-- 2. RETRIEVAL STARTER: 6.1 Automated Systems -->
+            <section>
+                <section data-background="#e6f0fa">
+                    <h3><i class="fa-solid fa-brain"></i> Retrieval: 6.1 Automated Systems</h3>
+                    <div class="box-blue">
+                        <p class="small-text" style="margin:0;">Recall Topic 6.1 before we move on.</p>
+                    </div>
+                    <ol style="font-size:1.1em; line-height:1.6; margin-top:1rem;">
+                        <li>What are the 3 main components of an automated system?</li>
+                        <li>What is the purpose of the 'Feedback' loop?</li>
+                        <li>Name one advantage of using automated systems in nuclear power.</li>
+                    </ol>
+                    <p class="small-text" style="margin-top: 20px; color: #666;">
+                        <i class="fa-solid fa-arrow-down"></i> Press Down to check answers
+                    </p>
+                </section>
+                <section>
+                    <h3>Question 1</h3>
+                    <div class="question-box">What are the 3 main components of an automated system?</div>
+                    <div class="fragment box-blue">
+                        <p><strong>Answer:</strong></p>
+                        <p>Sensors (Input), Microprocessor (Process), Actuators (Output).</p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Question 2</h3>
+                    <div class="question-box">What is the purpose of the 'Feedback' loop?</div>
+                    <div class="fragment box-blue">
+                        <p><strong>Answer:</strong></p>
+                        <p>To compare the actual output (e.g., current temp) with the desired output (preset value) and
+                            adjust accordingly.</p>
+                    </div>
+                </section>
+                <section>
+                    <h3>Question 3</h3>
+                    <div class="question-box">Name one advantage of using automated systems in nuclear power.</div>
+                    <div class="fragment box-blue">
+                        <p><strong>Answer:</strong></p>
+                        <p>Safety (removes humans from radiation danger) or Speed (reacts faster than humans to
+                            emergencies).</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 3. THE HOOK -->
+            <section>
+                <h2>The Robot Revolution</h2>
+                <div class="cols">
+                    <div class="box-blue">
+                        <h4><i class="fa-solid fa-film"></i> Sci-Fi</h4>
+                        <p>Terminators, C-3PO, and humanoid servants that look and act like us.</p>
+                    </div>
+                    <div class="box">
+                        <h4><i class="fa-solid fa-robot"></i> Reality</h4>
+                        <p>Mechanical arms welding cars, Roombas vacuuming floors, and drones delivering packages.</p>
+                    </div>
+                </div>
+                <div class="fragment box"
+                    style="text-align:center; margin-top:20px; background:var(--sg-gold); color:white;">
+                    <strong>Key Idea:</strong> A robot is defined by what it <strong>does</strong>, not what it looks
+                    like.
+                </div>
+            </section>
+
+            <!-- 4. CONCEPT LOOP: What is a Robot? -->
+            <section>
+                <section>
+                    <h2>What is a Robot?</h2>
+                    <div class="key-term fragment">
+                        <h3>Robot</h3>
+                        <p>A machine capable of carrying out a complex series of actions automatically, usually
+                            programmable by a computer.</p>
+                    </div>
+                    <div class="fragment fade-in">
+                        <p class="small-text">To be a "true" robot, it typically needs three characteristics:</p>
+                    </div>
+                    <div class="cols-3" style="margin-top:20px;">
+                        <div class="box fragment">
+                            <i class="fa-solid fa-eye blue fa-2x"></i><br>
+                            <strong>Sense</strong><br>
+                            <span class="small-text">Sensors to perceive surroundings.</span>
+                        </div>
+                        <div class="box fragment">
+                            <i class="fa-solid fa-arrows-up-down-left-right blue fa-2x"></i><br>
+                            <strong>Move</strong><br>
+                            <span class="small-text">Actuators/Mechanical parts to interact with the world.</span>
+                        </div>
+                        <div class="box fragment">
+                            <i class="fa-solid fa-code blue fa-2x"></i><br>
+                            <strong>Programmable</strong><br>
+                            <span class="small-text">A controller ('brain') that follows instructions.</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <i class="fa-solid fa-arrow-down blue"></i> <span class="small-text blue">Deep Dive: Independent
+                            vs Dependent</span>
+                    </div>
+                </section>
+
+                <!-- VERTICAL: Independent vs Dependent -->
+                <section data-background="#f4f6f8">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> Types of Robots</h3>
+                    <div class="cols">
+                        <div class="box fragment">
+                            <h4>Independent (Autonomous)</h4>
+                            <p class="small-text">No direct human control. Replaces human activity totally.</p>
+                            <hr>
+                            <p class="small-text"><em>Example: Autonomous Vacuum Cleaner, Mars Rover.</em></p>
+                        </div>
+                        <div class="box box-blue fragment">
+                            <h4>Dependent</h4>
+                            <p class="small-text">Human interfaces directly with the robot. Supplements human activity.
+                            </p>
+                            <hr>
+                            <p class="small-text"><em>Example: Robotic Surgery Arm (controlled by surgeon), Car Assembly
+                                    Cobot.</em></p>
+                        </div>
+                    </div>
+                    <div class="fragment box" style="margin-top:20px; border-left: 5px solid var(--sg-red);">
+                        <strong>Note:</strong> Do not confuse physical robots with "Software Bots" (e.g., Search Engine
+                        Crawlers or Chatbots). They are not true robots in this context.
+                    </div>
+                </section>
+            </section>
+
+            <!-- 5. CASE STUDY: Industry -->
+            <section>
+                <section>
+                    <h2>Case Study 1: Industry</h2>
+                    <div class="question-box">
+                        <p>Why have robots taken over car factories?</p>
+                    </div>
+                    <div class="cols">
+                        <div class="box fragment">
+                            <strong>Tasks</strong>
+                            <ul class="small-text">
+                                <li>Welding parts together.</li>
+                                <li>Spray-painting panels.</li>
+                                <li>Fitting windscreens (high precision).</li>
+                                <li>Heavy lifting in warehouses.</li>
+                            </ul>
+                        </div>
+                        <div class="box box-blue fragment">
+                            <strong>How?</strong>
+                            <p class="small-text"><strong>End Effectors:</strong> Different tools attached to the robot
+                                arm (e.g., Grippers, Spray Guns, Welders).</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <i class="fa-solid fa-arrow-down blue"></i> <span class="small-text blue">Deep Dive: Adv vs
+                            Disadv</span>
+                    </div>
+                </section>
+
+                <section data-background="#f4f6f8">
+                    <h3><i class="fa-solid fa-industry"></i> Industry: Evaluation</h3>
+                    <div class="cols">
+                        <div class="box fragment">
+                            <h4><i class="fa-solid fa-thumbs-up"></i> Advantages</h4>
+                            <ul class="small-text">
+                                <li><strong>Consistency:</strong> Identical product every time.</li>
+                                <li><strong>Productivity:</strong> Work 24/7 without breaks.</li>
+                                <li><strong>Safety:</strong> Work in hazardous environments (fumes, heat).</li>
+                                <li><strong>Cost:</strong> Cheaper in the long run (fewer wages).</li>
+                            </ul>
+                        </div>
+                        <div class="box box-blue fragment">
+                            <h4><i class="fa-solid fa-thumbs-down"></i> Disadvantages</h4>
+                            <ul class="small-text">
+                                <li><strong>Unemployment:</strong> Replaces manual labour jobs.</li>
+                                <li><strong>Deskilling:</strong> Humans lose the skills to do the work.</li>
+                                <li><strong>Setup Cost:</strong> Very expensive to buy and install.</li>
+                                <li><strong>Inflexibility:</strong> Difficult to reprogram for "non-standard" tasks.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 6. CASE STUDY: Transport -->
+            <section>
+                <section>
+                    <h2>Case Study 2: Transport</h2>
+                    <div class="question-box">
+                        <p>Would you trust a plane with no pilot?</p>
+                    </div>
+                    <div class="r-stack">
+                        <div class="fragment fade-out" data-fragment-index="1">
+                            <div class="box">
+                                <strong>Autonomous Cars</strong><br>
+                                Use <strong>Lidar</strong> (Light Detection and Ranging), Radar, and Cameras to build a
+                                3D map of the road.<br>
+                                <em>Actuators control steering, braking, and throttle.</em>
+                            </div>
+                        </div>
+                        <div class="fragment current-visible" data-fragment-index="1">
+                            <div class="box box-blue">
+                                <strong>Autonomous Trains</strong><br>
+                                Already common (e.g., Airport shuttles, London DLR).<br>
+                                <em>Easier than cars because they follow a fixed track and don't overtake.</em>
+                            </div>
+                        </div>
+                        <div class="fragment" data-fragment-index="2">
+                            <div class="box">
+                                <strong>Unpiloted Planes</strong><br>
+                                Most flying is already autopilot. Fully autonomous planes could remove the cockpit
+                                entirely for better aerodynamics.<br>
+                                <em>Sensors detect turbulence and adjust flaps instantly.</em>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <i class="fa-solid fa-arrow-down blue"></i> <span class="small-text blue">Deep Dive: The Ethics
+                            & Issues</span>
+                    </div>
+                </section>
+
+                <section data-background="#f4f6f8">
+                    <h3><i class="fa-solid fa-car-burst"></i> Transport: The Issues</h3>
+                    <div class="cols">
+                        <div class="box fragment">
+                            <h4>Advantages</h4>
+                            <ul class="small-text">
+                                <li><strong>Safer:</strong> Removes human error (tiredness, distraction).</li>
+                                <li><strong>Efficient:</strong> Smoother driving saves fuel and reduces traffic jams.
+                                </li>
+                                <li><strong>Convenience:</strong> Stress-free parking; productive commute time.</li>
+                            </ul>
+                        </div>
+                        <div class="box box-blue fragment">
+                            <h4>Disadvantages</h4>
+                            <ul class="small-text">
+                                <li><strong>Hacking:</strong> Fear of terrorists taking control of vehicles.</li>
+                                <li><strong>Software Glitches:</strong> Bugs could be catastrophic.</li>
+                                <li><strong>Public Reluctance:</strong> Humans don't trust the technology yet.</li>
+                                <li><strong>Liability:</strong> Who is responsible in a crash? The owner or the coder?
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 7. CASE STUDY: Agriculture -->
+            <section>
+                <section>
+                    <h2>Case Study 3: Agriculture</h2>
+                    <div class="question-box">
+                        <p>Farming 9 billion people requires robots, not just tractors.</p>
+                    </div>
+                    <div class="cols-3">
+                        <div class="box fragment">
+                            <strong>Harvesting</strong><br>
+                            <span class="small-text">Cameras identify ripe fruit. Soft grippers pick it without damage.
+                                Faster than humans.</span>
+                        </div>
+                        <div class="box box-blue fragment">
+                            <strong>Weed Control</strong><br>
+                            <span class="small-text">AI distinguishes weeds from crops. Lasers or mechanical blades
+                                remove them. Reduces chemical use.</span>
+                        </div>
+                        <div class="box fragment">
+                            <strong>Drones</strong><br>
+                            <span class="small-text">Aerial survey of crop health (Phenotyping). Precise spraying of
+                                fertiliser.</span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 8. QUICK FIRE: Other Roles -->
+            <section>
+                <h3><i class="fa-solid fa-robot"></i> Robots Everywhere</h3>
+                <div class="cols">
+                    <div class="box fragment">
+                        <h4><i class="fa-solid fa-user-doctor"></i> Medicine</h4>
+                        <p class="small-text"><strong>Surgical Robots:</strong> Steady hands for micro-surgery.</p>
+                        <p class="small-text"><strong>Prosthetics:</strong> Bionic limbs with sensors.</p>
+                    </div>
+                    <div class="box box-blue fragment">
+                        <h4><i class="fa-solid fa-house"></i> Domestic</h4>
+                        <p class="small-text"><strong>Chores:</strong> Vacuuming, lawn mowing, pool cleaning.</p>
+                        <p class="small-text"><strong>Assistants:</strong> 'Friend' robots for company.</p>
+                    </div>
+                    <div class="box fragment">
+                        <h4><i class="fa-solid fa-masks-theater"></i> Entertainment</h4>
+                        <p class="small-text"><strong>Theme Parks:</strong> Animatronics.</p>
+                        <p class="small-text"><strong>Movies:</strong> Camera control for impossible shots.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. PLENARY -->
+            <section>
+                <section>
+                    <h2><i class="fa-solid fa-check-double"></i> True or False?</h2>
+                    <div class="box-blue">
+                        <p style="margin:0;">Misconception Check</p>
+                    </div>
+                    <ol style="font-size:1.1em; line-height:1.6; margin-top: 20px;">
+                        <li>"A drone controlled by a remote is an autonomous robot."</li>
+                        <li>"Robots in industry generally lead to higher product consistency."</li>
+                        <li>"Search engine 'bots' are a type of physical robot."</li>
+                    </ol>
+                    <p class="small-text" style="margin-top: 20px; color: #666;">
+                        <i class="fa-solid fa-arrow-down"></i> Press Down to reveal answers
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Question 1</h3>
+                    <div class="question-box">"A drone controlled by a remote is an autonomous robot."</div>
+                    <div class="fragment box-blue">
+                        <p><strong>Answer: False</strong></p>
+                        <hr style="border-color: rgba(255,255,255,0.3);">
+                        <p>If it is remote-controlled by a human, it is a <strong>dependent</strong> robot. Autonomous
+                            means it flies itself.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Question 2</h3>
+                    <div class="question-box">"Robots in industry generally lead to higher product consistency."</div>
+                    <div class="fragment box-blue">
+                        <p><strong>Answer: True</strong></p>
+                        <hr style="border-color: rgba(255,255,255,0.3);">
+                        <p>Robots perform the exact same movement every time, whereas humans might get tired or vary
+                            slightly.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Question 3</h3>
+                    <div class="question-box">"Search engine 'bots' are a type of physical robot."</div>
+                    <div class="fragment box-blue">
+                        <p><strong>Answer: False</strong></p>
+                        <hr style="border-color: rgba(255,255,255,0.3);">
+                        <p>These are software programs. A robot generally implies a physical machine with sensors and
+                            actuators.</p>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+
+    <script src="../../js/slide-deck.js"></script>
+
+    <script>
+        // Date Script
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('live-date-display').innerText = new Date().toLocaleDateString('en-GB', dateOptions);
+    </script>
+
+</body>
+
+</html>
