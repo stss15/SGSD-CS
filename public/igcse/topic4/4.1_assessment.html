@@ -876,6 +876,7 @@
                 }
             });
             updateStatus('q1', q1Correct);
+            if (q1Correct) score++;
 
             // Helper
             function checkSelect(id, ans) {
@@ -898,6 +899,7 @@
             s2 += checkSelect('q2c', 'multitask');
             s2 += checkSelect('q2d', 'hardware');
             updateStatus('q2', s2 === 4);
+            if (s2 === 4) score++;
 
             // Q3
             let s3 = 0;
@@ -906,12 +908,14 @@
             s3 += checkSelect('q3c', 'Memory Mgmt');
             s3 += checkSelect('q3d', 'Multitasking');
             updateStatus('q3', s3 === 4);
+            if (s3 === 4) score++;
 
             // Q4
             let s4 = 0;
             s4 += checkSelect('q4a', 'Vendor ID');
             s4 += checkSelect('q4b', 'driver');
             updateStatus('q4', s4 === 2);
+            if (s4 === 2) score++;
 
             // Q5
             let s5 = 0;
@@ -920,6 +924,7 @@
             s5 += checkSelect('q5c', 'EEPROM');
             s5 += checkSelect('q5d', 'CMOS');
             updateStatus('q5', s5 === 4);
+            if (s5 === 4) score++;
 
             // Q6 Matching
             let s6 = 0;
@@ -940,6 +945,7 @@
                 }
             });
             updateStatus('q6', s6 === 5);
+            if (s6 === 5) score++;
 
             // Q7 Interrupt Cycle
             let s7 = 0;
@@ -949,6 +955,7 @@
             s7 += checkSelect('q7d', 'Restore');
             s7 += checkSelect('q7e', 'Resume');
             updateStatus('q7', s7 === 5);
+            if (s7 === 5) score++;
 
             // Q8 Interrupt Types
             const hwAns = ['i2', 'i3', 'i5'];
@@ -968,6 +975,7 @@
                 }
             });
             updateStatus('q8', q8Correct);
+            if (q8Correct) score++;
 
             // Q9 Hierarchy Ordering Check
             const listItems = document.querySelectorAll('#hierarchy-list li');
