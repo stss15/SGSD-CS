@@ -8,6 +8,7 @@ deckScripts: |
           const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
           document.getElementById('live-date-display').innerText = new Date().toLocaleDateString('en-GB', dateOptions);
 ---
+{% import "igcse/macros.njk" as ig %}
 <!-- 1. TITLE SLIDE -->
             <section>
                 <div class="title-container">
@@ -21,26 +22,11 @@ deckScripts: |
             </section>
 
             <!-- 2. RETRIEVAL STARTER -->
-            <section data-background="#e6f0fa">
-                <h3><i class="fa-solid fa-brain"></i> Retrieval Practice</h3>
-                <p class="small-text">Recall Topic 3 (Hardware) before we move on.</p>
-                <div class="question-box">
-                    <ul style="list-style: none; padding: 0;">
-                        <li class="fragment" style="margin-bottom: 20px;">
-                            1. Which memory is volatile?<br>
-                            <span class="fragment gold">RAM (Random Access Memory)</span>
-                        </li>
-                        <li class="fragment" style="margin-bottom: 20px;">
-                            2. What device converts analogue sound to digital?<br>
-                            <span class="fragment gold">ADC (Analogue to Digital Converter)</span>
-                        </li>
-                        <li class="fragment">
-                            3. Where does the CPU fetch instructions from?<br>
-                            <span class="fragment gold">Primary Memory (RAM)</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            {{ ig.retrievalDeck([
+                { question: "Which memory is volatile?", answer: "RAM (Random Access Memory)" },
+                { question: "What device converts analogue sound to digital?", answer: "ADC (Analogue to Digital Converter)" },
+                { question: "Where does the CPU fetch instructions from?", answer: "Primary Memory (RAM)" }
+            ], "Retrieval Practice", "Recall Topic 3 (Hardware) before we move on.") }}
 
             <!-- 3. THE HOOK -->
             <section>
@@ -418,6 +404,24 @@ deckScripts: |
                             class="fa-solid fa-house"></i> Return to Menu</a>
                 </div>
             </section>
+
+            {{ ig.trueFalseDeck([
+                {
+                    statement: "\"Application software can run without any system software.\"",
+                    answer: "False",
+                    explanation: "Applications rely on the OS, drivers, and utilities to access hardware resources."
+                },
+                {
+                    statement: "\"Interrupts stop the current task permanently.\"",
+                    answer: "False",
+                    explanation: "The CPU services the interrupt, restores the saved state, and resumes the original task."
+                },
+                {
+                    statement: "\"Defragmentation is a utility that can speed up disk access.\"",
+                    answer: "True",
+                    explanation: "It reorganises files so they are stored contiguously, reducing seek time."
+                }
+            ], "True or False?") }}
 
         </div>
     </div>

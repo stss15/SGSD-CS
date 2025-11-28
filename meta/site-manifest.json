@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2025-11-28T08:05:48.173Z",
+  "generatedAt": "2025-11-28T11:20:59.855Z",
   "outputDir": "public",
-  "pageCount": 45,
+  "pageCount": 48,
   "pages": [
     {
       "source": "src/pages/ib/A1/index.njk",
@@ -738,6 +738,22 @@
       ]
     },
     {
+      "source": "src/pages/igcse/topic1/1.1_number_representation.njk",
+      "output": "public/igcse/topic1/1.1_number_representation.html",
+      "permalink": "igcse/topic1/1.1_number_representation.html",
+      "layout": "layouts/slide-deck.njk",
+      "title": "1.1 Number Representation | St George's CS",
+      "basePath": "../../"
+    },
+    {
+      "source": "src/pages/igcse/topic1/1.2_text_sound_images.njk",
+      "output": "public/igcse/topic1/1.2_text_sound_images.html",
+      "permalink": "igcse/topic1/1.2_text_sound_images.html",
+      "layout": "layouts/slide-deck.njk",
+      "title": "1.2 Text, Sound & Images | St George's CS",
+      "basePath": "../../"
+    },
+    {
       "source": "src/pages/igcse/topic1/index.njk",
       "output": "public/igcse/topic1/index.html",
       "permalink": "igcse/topic1/index.html",
@@ -771,6 +787,18 @@
         }
       ],
       "resources": [
+        {
+          "href": "1.1_number_representation.html",
+          "icon": "1.1",
+          "name": "Number Representation",
+          "type": "Slide Deck • Presentation"
+        },
+        {
+          "href": "1.2_text_sound_images.html",
+          "icon": "1.2",
+          "name": "Text, Sound & Images",
+          "type": "Slide Deck • Presentation"
+        },
         {
           "href": "teacher_toolkit.html",
           "icon": "fa-solid fa-toolbox",
@@ -1200,6 +1228,14 @@
       ]
     },
     {
+      "source": "src/pages/igcse/topic6/6.1_automated_systems.njk",
+      "output": "public/igcse/topic6/6.1_automated_systems.html",
+      "permalink": "igcse/topic6/6.1_automated_systems.html",
+      "layout": "layouts/slide-deck.njk",
+      "title": "6.1 Automated Systems | St George's CS",
+      "basePath": "../../"
+    },
+    {
       "source": "src/pages/igcse/topic6/index.njk",
       "output": "public/igcse/topic6/index.html",
       "permalink": "igcse/topic6/index.html",
@@ -1228,6 +1264,24 @@
         }
       ],
       "resources": [
+        {
+          "href": "6.1_automated_systems.html",
+          "icon": "6.1",
+          "name": "Automated Systems",
+          "type": "Slide Deck • Presentation"
+        },
+        {
+          "href": "6.2.html",
+          "icon": "6.2",
+          "name": "Emerging Tech (placeholder)",
+          "type": "Slide Deck • Presentation"
+        },
+        {
+          "href": "6.3.html",
+          "icon": "6.3",
+          "name": "AI & Ethics (placeholder)",
+          "type": "Slide Deck • Presentation"
+        },
         {
           "href": "teacher_toolkit.html",
           "icon": "fa-solid fa-toolbox",

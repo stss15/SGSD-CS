@@ -8,7 +8,7 @@ deckScripts: |
           const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
           document.getElementById('live-date-display').innerText = new Date().toLocaleDateString('en-GB', dateOptions);
 ---
-{% import "../../../templates/igcse/macros.njk" as ig %}
+{% import "igcse/macros.njk" as ig %}
 <!-- 1. TITLE SLIDE -->
             <section>
                 <div class="title-container">

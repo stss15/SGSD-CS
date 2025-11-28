@@ -34,7 +34,8 @@
 
     <div class="reveal">
         <div class="slides">
-            <!-- 1. TITLE SLIDE -->
+            
+<!-- 1. TITLE SLIDE -->
             <section>
                 <div class="title-container">
                     <div class="title-line-top"></div>
@@ -107,8 +108,10 @@
             <!-- 5. BINARY: HOW TO CONVERT DENARY -> BINARY (VERTICAL STEPS) -->
             <section>
                 <section data-background="#e6f0fa">
-                    <h3>Denary → Binary (Example: 156)</h3>
-                    <p class="small-text">Press Down to step through.</p>
+                    <div class="question-box">
+                        <p style="font-size:1.2em; margin:0;"><strong>How do we convert 156<sub>10</sub> to binary?</strong></p>
+                        <p class="small-text">Press Down to see each step.</p>
+                    </div>
                 </section>
                 <section>
                     <div class="question-box">
@@ -233,8 +236,10 @@
             <!-- 9. HEX: DENARY -> HEX (VERTICAL STEPS) -->
             <section>
                 <section data-background="#e6f0fa">
-                    <h3>Denary → Hex (Example: 94)</h3>
-                    <p class="small-text">Press Down to step through.</p>
+                    <div class="question-box">
+                        <p style="font-size:1.2em; margin:0;"><strong>How do we convert 94<sub>10</sub> to hex?</strong></p>
+                        <p class="small-text">Press Down to see each step.</p>
+                    </div>
                 </section>
                 <section>
                     <div class="question-box">
@@ -305,6 +310,8 @@
                 </section>
             </section>
 
+            <!-- 12. BINARY ADDITION stays as-is -->
+
             <!-- 13. LOGICAL SHIFTS -->
             <section>
                 <h3>What Are Logical Shifts?</h3>
@@ -329,8 +336,10 @@
 
             <section>
                 <section data-background="#e6f0fa">
-                    <h3>How Do Logical Shifts Work?</h3>
-                    <p class="small-text">Press Down to step through examples.</p>
+                    <div class="question-box">
+                        <p style="font-size:1.2em; margin:0;"><strong>How do logical shifts change a number?</strong></p>
+                        <p class="small-text">Press Down to see examples.</p>
+                    </div>
                 </section>
                 <section>
                     <div class="question-box">
@@ -377,8 +386,10 @@
             <!-- 15. TWO'S COMPLEMENT: HOW (VERTICAL STEPS) -->
             <section>
                 <section data-background="#e6f0fa">
-                    <h3>Build a Negative (Example: -25)</h3>
-                    <p class="small-text">Press Down to step through.</p>
+                    <div class="question-box">
+                        <p style="font-size:1.2em; margin:0;"><strong>How do we represent -25 in two's complement (8-bit)?</strong></p>
+                        <p class="small-text">Press Down to see each step.</p>
+                    </div>
                 </section>
                 <section>
                     <div class="question-box">
@@ -411,58 +422,73 @@
                 </div>
             </section>
 
-            <!-- 17. TRUE OR FALSE -->
-            <section>
-                <section>
-                    <h2><i class="fa-solid fa-check-double"></i> True or False?</h2>
-                    <div class="box-blue">
-                        <p style="margin:0;">Answer in your book, then check the reveal slides.</p>
-                    </div>
-                    <ol style="font-size: 1.05em; line-height: 1.6; margin-top: 20px;">
-                        <li>"A left shift always divides a number by 2."</li>
-                        <li>"Overflow happens when a sum needs more bits than the register size."</li>
-                        <li>"Two's complement -25 is made by flipping bits and subtracting one."</li>
-                    </ol>
-                    <p class="small-text" style="margin-top: 20px; color:#666;">
-                        <i class="fa-solid fa-arrow-down"></i> Press Down to reveal and discuss
-                    </p>
-                </section>
+            <!-- 17. MISCONCEPTION CHECK (TRUE/FALSE) -->
+            
+<section>
+    <section>
+        <h2><i class="fa-solid fa-check-double"></i> True or False?</h2>
+        
+        <div class="box-blue">
+            <p style="margin:0;">Answer these misconception checks in your book:</p>
+        </div>
+        
+        <ol style="font-size:1.1em; line-height:1.6; margin-top: 20px;">
+            
+                <li>"A left shift always divides a number by 2."</li>
+            
+                <li>"Overflow happens when a sum needs more bits than the register size."</li>
+            
+                <li>"Two's complement -25 is made by flipping bits and subtracting one."</li>
+            
+        </ol>
+        <p class="small-text" style="margin-top: 20px; color: #666;">
+            <i class="fa-solid fa-arrow-down"></i> Press Down to reveal answers
+        </p>
+    </section>
 
-                <section>
-                    <h3>Question 1</h3>
-                    <div class="question-box">"A left shift always divides a number by 2."</div>
-                    <div class="fragment box-blue">
-                        <p><strong>Answer: False</strong></p>
-                        <hr style="border-color: rgba(255,255,255,0.3);">
-                        <p>Left shifts multiply by 2 per shift; right shifts divide by 2.</p>
-                    </div>
-                </section>
+    
+    <section>
+        <h3>Question 1</h3>
+        <div class="question-box">"A left shift always divides a number by 2."</div>
+        <div class="fragment box-blue">
+            <p><strong>Answer: False</strong></p>
+            
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <p>Left shifts multiply by 2 per shift; right shifts divide by 2.</p>
+            
+        </div>
+    </section>
+    
+    <section>
+        <h3>Question 2</h3>
+        <div class="question-box">"Overflow happens when a sum needs more bits than the register size."</div>
+        <div class="fragment box-blue">
+            <p><strong>Answer: True</strong></p>
+            
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <p>Carry out of the most significant bit indicates overflow in fixed-width arithmetic.</p>
+            
+        </div>
+    </section>
+    
+    <section>
+        <h3>Question 3</h3>
+        <div class="question-box">"Two's complement -25 is made by flipping bits and subtracting one."</div>
+        <div class="fragment box-blue">
+            <p><strong>Answer: False</strong></p>
+            
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <p>You invert the bits and then add one, not subtract one.</p>
+            
+        </div>
+    </section>
+    
+</section>
 
-                <section>
-                    <h3>Question 2</h3>
-                    <div class="question-box">"Overflow happens when a sum needs more bits than the register size."</div>
-                    <div class="fragment box-blue">
-                        <p><strong>Answer: True</strong></p>
-                        <hr style="border-color: rgba(255,255,255,0.3);">
-                        <p>Carry out of the most significant bit indicates overflow in fixed-width arithmetic.</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Question 3</h3>
-                    <div class="question-box">"Two's complement -25 is made by flipping bits and subtracting one."</div>
-                    <div class="fragment box-blue">
-                        <p><strong>Answer: False</strong></p>
-                        <hr style="border-color: rgba(255,255,255,0.3);">
-                        <p>You invert the bits and then add one, not subtract one.</p>
-                    </div>
-                </section>
-            </section>
 
         </div>
     </div>
 
-    <!-- Reveal.js Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
     
