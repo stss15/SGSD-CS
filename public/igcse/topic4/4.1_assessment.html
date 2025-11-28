@@ -1036,15 +1036,15 @@
         }
 
         const questionMeta = [
-            { id: 'q1', title: 'System vs Application', correctAnswer: 'System: OS, utilities, drivers, translators. Application: user-task programs (word, browser, games).', explanation: 'System software manages hardware and platform services; applications help users perform tasks.' },
-            { id: 'q2', title: 'OS Concepts', correctAnswer: 'Buffer, Interrupt, Multitask, Hardware Driver', explanation: 'Buffers smooth speed gaps; interrupts request CPU attention; multitasking shares CPU; drivers interface hardware.' },
-            { id: 'q3', title: 'OS Functions', correctAnswer: 'HCI, Security, Memory Mgmt, Multitasking', explanation: 'Interfaces let users interact; security protects access; memory allocates RAM; multitasking shares CPU time.' },
-            { id: 'q4', title: 'USB Descriptors', correctAnswer: 'Vendor ID + device driver', explanation: 'Descriptors identify the vendor/device so the OS can load the correct driver.' },
-            { id: 'q5', title: 'BIOS/CMOS', correctAnswer: 'BIOS stored in EEPROM; settings in CMOS; RAM is volatile', explanation: 'BIOS boots hardware from non-volatile chip; CMOS stores config; RAM clears on power-off.' },
-            { id: 'q6', title: 'Match Components', correctAnswer: 'Correct pairs of OS services', explanation: 'Each term matches its definition (e.g., scheduler, device manager, file system, interface, security).' },
-            { id: 'q7', title: 'Interrupt Cycle Order', correctAnswer: 'Signal → Save → ISR → Restore → Resume', explanation: 'CPU pauses, saves state, runs ISR, restores registers, continues previous task.' },
-            { id: 'q8', title: 'Interrupt Types', correctAnswer: 'Hardware: printer/keyboard/power; Software: divide by zero/overflow/syscall', explanation: 'Hardware interrupts come from devices; software from code/events.' },
-            { id: 'q9', title: 'Software Stack Order', correctAnswer: 'Application → OS → Firmware → Hardware', explanation: 'Apps call OS services; OS uses firmware; firmware talks to hardware.' }
+            { id: 'q1', title: 'System vs Application', correctAnswer: 'System: OS, utilities, drivers, translators. Application: user-task programs (word, browser, games).', explanation: 'System software manages hardware and platform services; applications help users perform tasks.', feedback: ['Revisit system vs application definitions.', 'Examples: OS/drivers vs Word/browsers.'] },
+            { id: 'q2', title: 'OS Concepts', correctAnswer: 'Buffer, Interrupt, Multitask, Hardware Driver', explanation: 'Buffers smooth speed gaps; interrupts request CPU attention; multitasking shares CPU; drivers interface hardware.', feedback: ['Practise buffer vs interrupt.', 'Link drivers to hardware control.'] },
+            { id: 'q3', title: 'OS Functions', correctAnswer: 'HCI, Security, Memory Mgmt, Multitasking', explanation: 'Interfaces let users interact; security protects access; memory allocates RAM; multitasking shares CPU time.', feedback: ['Memorise core OS functions: HCI, Security, Memory, Multitasking.'] },
+            { id: 'q4', title: 'USB Descriptors', correctAnswer: 'Vendor ID + device driver', explanation: 'Descriptors identify the vendor/device so the OS can load the correct driver.', feedback: ['Drivers load using device/vendor IDs.'] },
+            { id: 'q5', title: 'BIOS/CMOS', correctAnswer: 'BIOS stored in EEPROM; settings in CMOS; RAM is volatile', explanation: 'BIOS boots hardware from non-volatile chip; CMOS stores config; RAM clears on power-off.', feedback: ['BIOS in ROM/EEPROM, CMOS holds settings, RAM is volatile.'] },
+            { id: 'q6', title: 'Match Components', correctAnswer: 'Correct pairs of OS services', explanation: 'Each term matches its definition (e.g., scheduler, device manager, file system, interface, security).', feedback: ['Review OS component roles (scheduler, device/file managers).'] },
+            { id: 'q7', title: 'Interrupt Cycle Order', correctAnswer: 'Signal → Save → ISR → Restore → Resume', explanation: 'CPU pauses, saves state, runs ISR, restores registers, continues previous task.', feedback: ['Practise the interrupt cycle order.'] },
+            { id: 'q8', title: 'Interrupt Types', correctAnswer: 'Hardware: printer/keyboard/power; Software: divide by zero/overflow/syscall', explanation: 'Hardware interrupts come from devices; software from code/events.', feedback: ['Differentiate hardware vs software interrupts.'] },
+            { id: 'q9', title: 'Software Stack Order', correctAnswer: 'Application → OS → Firmware → Hardware', explanation: 'Apps call OS services; OS uses firmware; firmware talks to hardware.', feedback: ['Remember stack order: App → OS → Firmware → HW.'] }
         ];
 
         async function generatePDF() {
@@ -1108,12 +1108,17 @@
             });
 
             // Feedback summary
-            addWrapped('Feedback Focus', 12, 'bold', '#003366', 0, 4);
+            doc.addPage();
+            yPos = 20;
+            addWrapped('Feedback Focus', 14, 'bold', '#003366', 0, 6);
             const weakAreas = questionMeta.filter(q => (mistakeCounts[q.id] || 0) > 0);
             if (weakAreas.length === 0) {
-                addWrapped('No issues flagged. Great work—keep revising the core definitions and processes.', 10, 'normal', '#444', 4, 4);
+                addWrapped('No issues flagged. Great work—keep revising the core definitions and processes.', 11, 'normal', '#444', 4, 4);
             } else {
-                weakAreas.forEach(q => addWrapped(`• ${q.title} (review: ${q.explanation})`, 10, 'normal', '#444', 4, 3));
+                weakAreas.forEach(q => {
+                    addWrapped(`• ${q.title}`, 11, 'bold', '#003366', 4, 2);
+                    (q.feedback || []).forEach(fb => addWrapped(`   - ${fb}`, 10, 'normal', '#444', 8, 2));
+                });
             }
 
             doc.save(`Topic4_4.1_Assessment_${studentDetails.surname || 'student'}.pdf`);
