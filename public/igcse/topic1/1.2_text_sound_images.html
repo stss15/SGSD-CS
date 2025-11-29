@@ -47,6 +47,25 @@
                 </div>
             </section>
 
+            <!-- HOOK / GOALS -->
+            <section>
+                <h2>The Big Question</h2>
+                <div class="cols">
+                    <div class="box-blue">
+                        <h4><i class="fa-solid fa-font"></i> Media to Bits</h4>
+                        <p>How do we turn letters, music, and photos into 0s and 1s without losing meaning?</p>
+                    </div>
+                    <div class="box">
+                        <h4><i class="fa-solid fa-bullseye"></i> Goals</h4>
+                        <ul class="small-text" style="margin:0;">
+                            <li>Explain ASCII vs Unicode and how encodings store characters.</li>
+                            <li>Model sound sampling and calculate audio file size.</li>
+                            <li>Model bitmap images, colour depth, and size; contrast with vectors.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             
 <section>
     <section data-background="#e6f0fa">
@@ -114,7 +133,7 @@
         
         <div class="fragment box-blue">
             <p><strong>Answer:</strong></p>
-            <p>width × height × colour depth</p>
+            <p>width x height x colour depth</p>
         </div>
         
     </section>
@@ -138,20 +157,48 @@
                 <h3>What Is a Character Set?</h3>
                 <div class="key-term fragment">
                     <h3>Character Set</h3>
-                    <p>A list of characters matched to numeric codes so text can be stored in binary (e.g., ASCII, Unicode).</p>
+                    <p>A list of characters matched to numeric code points so text can be stored in binary (e.g., ASCII, Unicode).</p>
                 </div>
                 <div class="cols">
                     <div class="box fragment">
                         <strong>Why It Exists</strong>
                         <ul class="small-text">
-                            <li>ASCII (7-bit) covers basic English keyboard</li>
-                            <li>Unicode (UTF-8/16/32) covers languages/emojis globally</li>
+                            <li>Standard ASCII: 7 bits, 128 codes (English letters, digits, punctuation, control codes).</li>
+                            <li>Extended ASCII: 8 bits, 256 codes (adds symbols/accents but not consistent worldwide).</li>
+                            <li>Unicode: global code points (e.g., U+0041 = A, U+1F600 = emoji) shared across platforms.</li>
                         </ul>
                     </div>
                     <div class="box-blue fragment">
-                        <strong>Question</strong>
-                        <p class="small-text">Why did we move from ASCII to Unicode?</p>
-                        <p class="small-text fragment">ASCII is limited to 128 symbols; Unicode supports thousands of scripts/emojis.</p>
+                        <strong>Clarify</strong>
+                        <p class="small-text">A character set lists code points; an <em>encoding</em> (ASCII, UTF-8/16/32) decides how many bytes are used.</p>
+                        <p class="small-text fragment">Why shift to Unicode? To cover every language and emoji consistently.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>ASCII vs Unicode at a Glance</h3>
+                <div class="cols">
+                    <div class="box">
+                        <p><strong>ASCII (7-bit):</strong> 0-127 codes</p>
+                        <table style="width:100%; font-size:0.9em; text-align:center;">
+                            <tr><th>Char</th><th>Dec</th><th>Hex</th><th>Binary</th></tr>
+                            <tr>
+                                <td>A</td><td>65</td><td>41</td><td>01000001</td>
+                            </tr>
+                            <tr>
+                                <td>a</td><td>97</td><td>61</td><td>01100001</td>
+                            </tr>
+                            <tr>
+                                <td>Space</td><td>32</td><td>20</td><td>00100000</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="box-blue fragment">
+                        <p><strong>Unicode (UTF-8):</strong> variable length</p>
+                        <p class="small-text">ASCII stays 1 byte; global scripts/emojis use 2-4 bytes.</p>
+                        <p class="small-text fragment">U+1F600 (grinning face) in UTF-8 -> 4 bytes: F0 9F 98 80</p>
+                        <p class="small-text fragment">UTF-16 often 2 bytes; UTF-32 always 4 bytes.</p>
                     </div>
                 </div>
             </section>
@@ -190,6 +237,7 @@
                     <div class="box-blue">
                         <p><strong>Spot Check:</strong> Which encoding is best for mixed-language text?</p>
                         <p class="small-text">UTF-8 (compact for ASCII, flexible for other scripts).</p>
+                        <p class="small-text fragment">Example: "Hi!" in ASCII = 3 bytes; "Hola!" in UTF-8 = 6 bytes; emoji needs 4 bytes.</p>
                     </div>
                 </section>
             </section>
@@ -213,6 +261,22 @@
                         <strong>Question</strong>
                         <p class="small-text">What happens to quality and size if we double the sample rate?</p>
                         <p class="small-text fragment">Quality ↑ (captures higher frequencies); file size ↑ proportionally.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>Sampling Parameters</h3>
+                <div class="cols">
+                    <div class="box">
+                        <p><strong>Sample rate:</strong> samples per second (Hz). Must be at least 2x the highest frequency (Nyquist).</p>
+                        <p><strong>Resolution/bit depth:</strong> bits per sample; higher reduces quantisation error.</p>
+                        <p><strong>Channels:</strong> mono = 1, stereo = 2 (or more).</p>
+                    </div>
+                    <div class="box-blue fragment">
+                        <p><strong>Clarify</strong></p>
+                        <p class="small-text">Doubling sample rate or bit depth doubles file size if other factors stay constant.</p>
+                        <p class="small-text fragment">Changing sample rate does not change pitch; it captures or misses frequencies.</p>
                     </div>
                 </div>
             </section>
@@ -246,8 +310,19 @@
                 <section>
                     <h3 style="margin-bottom:1rem;">How Does Sampling Work?</h3>
                     <div class="box-blue">
-                        <p><strong>File Size (bits):</strong> sample rate × resolution × channels × duration</p>
-                        <p class="small-text">Bytes = (rate × res × ch × seconds) ÷ 8</p>
+                        <p><strong>File Size (bits):</strong> sample rate x resolution x channels x duration</p>
+                        <p class="small-text">Bytes = (rate x res x ch x seconds) / 8</p>
+                    </div>
+                </section>
+                <section>
+                    <h3 style="margin-bottom:1rem;">Sampling Example</h3>
+                    <div class="box">
+                        <p><strong>Example:</strong> 44.1 kHz, 16-bit, stereo, 10 s</p>
+                        <p class="small-text fragment">44,100 x 16 x 2 x 10 = 14,112,000 bits (~1.76 MB)</p>
+                    </div>
+                    <div class="fragment box-blue">
+                        <p><strong>Try now:</strong> 22.05 kHz, 8-bit, mono, 5 s</p>
+                        <p class="small-text fragment">22,050 x 8 x 1 x 5 = 882,000 bits (~110.25 KB)</p>
                     </div>
                 </section>
             </section>
@@ -286,7 +361,7 @@
                 <section>
                     <h3 style="margin-bottom:1rem;">How Does an Image Become Bits?</h3>
                     <div class="question-box">
-                        <p style="font-size:1.2em; margin:0;"><strong>Step 1:</strong> Decide resolution (width × height pixels).</p>
+                        <p style="font-size:1.2em; margin:0;"><strong>Step 1:</strong> Decide resolution (width x height pixels).</p>
                     </div>
                 </section>
                 <section>
@@ -304,10 +379,35 @@
                 <section>
                     <h3 style="margin-bottom:1rem;">How Does an Image Become Bits?</h3>
                     <div class="box-blue">
-                        <p><strong>File Size (bits):</strong> width × height × colour depth</p>
-                        <p class="small-text">Bytes = (pixels × depth) ÷ 8</p>
+                        <p><strong>File Size (bits):</strong> width x height x colour depth</p>
+                        <p class="small-text">Bytes = (pixels x depth) / 8</p>
                     </div>
                 </section>
+                <section>
+                    <h3 style="margin-bottom:1rem;">Bitmap Size Example</h3>
+                    <div class="box">
+                        <p><strong>Example:</strong> 800 x 600 at 24-bit</p>
+                        <p class="small-text fragment">800 x 600 x 24 = 11,520,000 bits (~1.44 MB)</p>
+                    </div>
+                    <div class="fragment box-blue">
+                        <p><strong>Try now:</strong> 400 x 300 at 8-bit</p>
+                        <p class="small-text fragment">400 x 300 x 8 = 960,000 bits (~120 KB)</p>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h3>Bitmap vs Vector</h3>
+                <div class="cols">
+                    <div class="box">
+                        <p><strong>Bitmap:</strong> stores every pixel's colour; can pixelate when scaled up; great for photos.</p>
+                        <p><strong>Vector:</strong> stores shapes/formulas; scales cleanly; great for logos/icons.</p>
+                    </div>
+                    <div class="box-blue fragment">
+                        <p><strong>Clarify</strong></p>
+                        <p class="small-text">Vector files can be tiny for simple art; bitmaps grow with resolution and colour depth.</p>
+                    </div>
+                </div>
             </section>
 
             <!-- TRUE / FALSE (MISCONCEPTIONS) -->
@@ -322,11 +422,13 @@
         
         <ol style="font-size:1.1em; line-height:1.6; margin-top: 20px;">
             
-                <li>"ASCII can store every emoji."</li>
+                <li>"UTF-8 always uses 1 byte per character."</li>
             
                 <li>"Doubling the sample rate doubles the sound file size if everything else is constant."</li>
             
                 <li>"Increasing colour depth reduces the image file size."</li>
+
+                <li>"Vector images pixelate when scaled up."</li>
             
         </ol>
         <p class="small-text" style="margin-top: 20px; color: #666;">
@@ -337,12 +439,12 @@
     
     <section>
         <h3>Question 1</h3>
-        <div class="question-box">"ASCII can store every emoji."</div>
+        <div class="question-box">"UTF-8 always uses 1 byte per character."</div>
         <div class="fragment box-blue">
             <p><strong>Answer: False</strong></p>
             
             <hr style="border-color: rgba(255,255,255,0.3);">
-            <p>ASCII is 7-bit and limited to basic English symbols; emojis need Unicode encodings like UTF-8.</p>
+            <p>UTF-8 is variable length: ASCII stays 1 byte but other scripts/emojis need 2-4 bytes.</p>
             
         </div>
     </section>
@@ -367,6 +469,18 @@
             
             <hr style="border-color: rgba(255,255,255,0.3);">
             <p>Higher colour depth uses more bits per pixel, increasing size.</p>
+            
+        </div>
+    </section>
+
+    <section>
+        <h3>Question 4</h3>
+        <div class="question-box">"Vector images pixelate when scaled up."</div>
+        <div class="fragment box-blue">
+            <p><strong>Answer: False</strong></p>
+            
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <p>Vectors redraw shapes mathematically, so they stay sharp; bitmaps pixelate when enlarged.</p>
             
         </div>
     </section>
